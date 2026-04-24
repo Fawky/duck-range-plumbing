@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duck Range Plumbing and HVAC Ltd. | Chase, BC | Shuswap's Trusted Plumbing &amp; HVAC</title>
+  <meta name="description" content="Duck Range Plumbing and HVAC Ltd. — serving Chase, Pritchard, Sorrento &amp; the North Shuswap. Licensed, insured, gas fitting certified. 16 years experience. Call 250-214-0539.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================
+       CSS RESET & CUSTOM PROPERTIES
+    ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue-900:    #0B2C6B;
+      --blue-700:    #1B5FAF;
+      --blue-600:    #2272D4;
+      --blue-100:    #E8F0FB;
+      --copper-600:  #C4622D;
+      --copper-700:  #A34E22;
+      --copper-100:  #FDF0E8;
+      --neutral-900: #1A1F2E;
+      --neutral-700: #3D4557;
+      --neutral-400: #8A93A8;
+      --neutral-200: #E2E6EF;
+      --neutral-100: #F5F6FA;
+      --white:       #FFFFFF;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 112px;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--neutral-700);
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      max-width: 16ch;
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.2;
+      max-width: 30ch;
+    }
+
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      line-height: 1.3;
+    }
+
+    p { line-height: 1.6; max-width: 65ch; }
+
+    .eyebrow {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    /* =============================================
+       LAYOUT
+    ============================================= */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-primary { background: var(--blue-600); color: var(--white); }
+    .btn-primary:hover { background: var(--blue-700); }
+
+    .btn-copper { background: var(--copper-600); color: var(--white); }
+    .btn-copper:hover { background: var(--copper-700); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.9);
+    }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* =============================================
+       FORMS
+    ============================================= */
+    .form-group { margin-bottom: 16px; }
+
+    .form-group label {
+      display: block;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--neutral-700);
+      margin-bottom: 4px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--neutral-200);
+      border-radius: 4px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+      color: var(--neutral-900);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue-600);
+      box-shadow: 0 0 0 3px rgba(34,114,212,0.12);
+    }
+
+    .form-group textarea { resize: vertical; }
+
+    .select-wrapper { position: relative; }
+    .select-wrapper::after {
+      content: '';
+      position: absolute;
+      right: 14px; top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      width: 16px; height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238A93A8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    /* =============================================
+       TOP BAR
+    ============================================= */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: 44px;
+      background: var(--blue-900);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+    }
+
+    .topbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .topbar-left,
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.8125rem;
+    }
+
+    .topbar-left svg, .topbar-right svg { flex-shrink: 0; opacity: 0.8; }
+    .topbar-right { gap: 16px; }
+    .topbar a { color: var(--white); text-decoration: none; opacity: 0.9; }
+    .topbar a:hover { opacity: 1; }
+
+    .btn-topbar {
+      background: var(--copper-600);
+      color: var(--white) !important;
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      text-decoration: none;
+      opacity: 1 !important;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-topbar:hover { background: var(--copper-700) !important; }
+
+    .topbar-location-text { opacity: 0.85; }
+    .topbar-location-short { display: none; opacity: 0.85; }
+
+    @media (max-width: 600px) {
+      .topbar-location-text { display: none; }
+      .topbar-location-short { display: inline; }
+      .btn-topbar { display: none; }
+    }
+
+    /* =============================================
+       HEADER / NAV
+    ============================================= */
+    .site-header {
+      position: sticky;
+      top: 44px;
+      z-index: 999;
+      background: var(--white);
+      transition: box-shadow 0.2s;
+    }
+    .site-header.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.1); }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .header-logo { flex-shrink: 0; }
+    .header-logo img { height: 52px; width: auto; display: block; }
+
+    .nav-desktop { display: flex; align-items: center; gap: 32px; }
+
+    .nav-desktop a.nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--neutral-700);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-desktop a.nav-link:hover { color: var(--blue-600); }
+
+    .nav-toggle { display: none; }
+
+    .nav-toggle-label {
+      display: none;
+      cursor: pointer;
+      color: var(--neutral-900);
+      padding: 8px; margin: -8px;
+    }
+
+    .nav-mobile { display: none; }
+
+    @media (max-width: 768px) {
+      .nav-desktop { display: none; }
+      .nav-toggle-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px; min-height: 44px;
+      }
+      .nav-mobile {
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        border-top: 1px solid var(--neutral-200);
+      }
+      .nav-toggle:checked ~ .header-inner ~ .nav-mobile { max-height: 400px; }
+      .nav-mobile-inner {
+        padding: 16px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .nav-mobile a {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        color: var(--neutral-700);
+        text-decoration: none;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--neutral-100);
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+      .nav-mobile a:hover { color: var(--blue-600); }
+      .nav-mobile .btn-copper { margin-top: 12px; justify-content: center; width: 100%; }
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      background:
+        linear-gradient(rgba(11,44,107,0.72), rgba(11,44,107,0.78)),
+        url('../Bree-Link Plumbing and Heating/site-images/hero.jpg') center / cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) { .hero { min-height: auto; } }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 48px;
+      align-items: center;
+      width: 100%;
+      padding: 128px 0 80px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; padding: 80px 0 56px; gap: 40px; }
+    }
+
+    .hero-cert-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-cert-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.9);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      border-radius: 24px;
+      padding: 5px 12px;
+    }
+
+    .hero h1 { color: var(--white); animation: fadeInUp 0.6s ease both; }
+
+    .hero-sub {
+      color: var(--white);
+      opacity: 0.88;
+      font-size: 1rem;
+      max-width: 52ch;
+      margin-top: 16px;
+      animation: fadeInUp 0.6s 0.15s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 32px;
+      animation: fadeInUp 0.6s 0.3s ease both;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 32px;
+      animation: fadeInUp 0.6s 0.45s ease both;
+    }
+
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--white);
+      opacity: 0.88;
+      font-size: 0.875rem;
+    }
+    .hero-trust-item svg { flex-shrink: 0; }
+
+    .hero-form-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+    }
+
+    .hero-form-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--neutral-900);
+      margin-bottom: 4px;
+    }
+
+    .hero-form-fine {
+      font-size: 0.8125rem;
+      color: var(--neutral-400);
+      margin-bottom: 24px;
+    }
+
+    .btn-submit-copper {
+      width: 100%;
+      min-height: 48px;
+      background: var(--copper-600);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit-copper:hover { background: var(--copper-700); }
+
+    @media (max-width: 768px) {
+      .hero-trust { gap: 16px; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; text-align: center; justify-content: center; }
+      .hero-form-card { padding: 24px; }
+    }
+
+    /* =============================================
+       SERVICES
+    ============================================= */
+    .section-services { background: var(--neutral-100); padding: 96px 0; }
+
+    .section-header { margin-bottom: 48px; }
+    .section-header p { margin-top: 12px; color: var(--neutral-700); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .services-grid { grid-template-columns: 1fr; } }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transform: translateY(-2px);
+    }
+
+    /* Photo placeholder — swap with <img> when photos are ready */
+    .service-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-img-placeholder {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.5);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .service-img-placeholder svg { opacity: 0.45; }
+
+    .svc-bg-1 { background: linear-gradient(135deg, #1C3A5C 0%, #2A5280 100%); }
+    .svc-bg-2 { background: linear-gradient(135deg, #1A2E1A 0%, #2D4F2D 100%); }
+    .svc-bg-3 { background: linear-gradient(135deg, #3A1C0A 0%, #6B3012 100%); }
+    .svc-bg-4 { background: linear-gradient(135deg, #0D2E2E 0%, #1A4F4F 100%); }
+    .svc-bg-5 { background: linear-gradient(135deg, #1C2340 0%, #2C3A6B 100%); }
+    .svc-bg-6 { background: linear-gradient(135deg, #2A1C2E 0%, #4A3057 100%); }
+
+    .service-card-body { padding: 24px; }
+    .service-card-body h3 { color: var(--neutral-900); }
+    .service-card-body p { color: var(--neutral-700); font-size: 0.9375rem; line-height: 1.6; margin-top: 8px; }
+
+    .service-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--blue-600);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      margin-top: 16px;
+      transition: gap 0.2s;
+    }
+    .service-card-link:hover { gap: 8px; }
+
+    /* =============================================
+       TESTIMONIALS
+    ============================================= */
+    .section-testimonials { background: var(--white); padding: 96px 0; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 768px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
+    .testimonial-card { background: var(--neutral-100); border-radius: 8px; padding: 32px; }
+
+    .stars { display: flex; gap: 4px; color: var(--blue-900); }
+
+    .testimonial-quote {
+      color: var(--neutral-700);
+      font-size: 1rem;
+      line-height: 1.6;
+      font-style: italic;
+      margin: 16px 0;
+      max-width: 65ch;
+    }
+
+    .testimonial-attr {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--neutral-900);
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    .section-about { background: var(--copper-100); padding: 96px 0; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 1024px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+    .about-text p { color: var(--neutral-700); margin-top: 16px; }
+
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-top: 32px;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--neutral-900);
+    }
+    .trust-badge svg { color: var(--blue-600); flex-shrink: 0; }
+
+    .about-image {
+      background: linear-gradient(135deg, #1C2B3A 0%, #243548 100%);
+      border-radius: 8px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-image::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(196,98,45,0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .about-image-label {
+      position: relative;
+      text-align: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 13px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+
+    /* =============================================
+       GALLERY (Photo placeholder grid)
+    ============================================= */
+    .section-gallery { background: var(--neutral-900); padding: 96px 0; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: auto auto;
+      gap: 6px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 4px;
+      aspect-ratio: 4/3;
+      background: var(--neutral-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.2);
+      transition: background 0.3s;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.88) saturate(0.9);
+    }
+    .gallery-item img:hover { transform: scale(1.05); filter: brightness(1) saturate(1.1); }
+
+    /* =============================================
+       FAQ
+    ============================================= */
+    .section-faq { background: var(--white); padding: 96px 0; }
+    .faq-wrapper { max-width: 800px; margin: 0 auto; }
+    .faq-list { margin-top: 48px; }
+
+    details { border-bottom: 1px solid var(--neutral-200); }
+
+    details summary {
+      padding: 20px 0;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.0625rem;
+      color: var(--neutral-900);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] summary { color: var(--blue-600); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      color: var(--neutral-400);
+    }
+    details[open] .faq-chevron { transform: rotate(180deg); color: var(--blue-600); }
+
+    .faq-answer { overflow: hidden; max-height: 0; transition: max-height 0.3s ease; }
+    .faq-answer-inner {
+      padding: 0 0 20px;
+      color: var(--neutral-700);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    .section-contact { background: var(--neutral-100); padding: 96px 0; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-top: 48px;
+    }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+    .contact-info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .contact-info-row svg { color: var(--blue-600); flex-shrink: 0; margin-top: 2px; }
+    .contact-info-row .info-text { font-size: 0.9375rem; color: var(--neutral-700); line-height: 1.5; }
+    .contact-info-row a { color: var(--blue-600); font-weight: 600; text-decoration: none; }
+    .contact-info-row a:hover { text-decoration: underline; }
+    .contact-info-row .info-text span { display: block; font-size: 0.875rem; color: var(--neutral-400); margin-top: 2px; }
+
+    .contact-form-card {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .btn-submit-blue {
+      width: 100%;
+      min-height: 48px;
+      background: var(--blue-600);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit-blue:hover { background: var(--blue-700); }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .site-footer { background: var(--blue-900); color: var(--white); padding: 64px 0 0; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+      padding-bottom: 64px;
+    }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 48px 32px; } }
+    @media (max-width: 480px)  { .footer-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    .footer-col-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-logo-desc {
+      color: var(--white);
+      opacity: 0.7;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-top: 16px;
+      max-width: 28ch;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-links li a {
+      color: var(--white);
+      opacity: 0.7;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    .footer-links li a:hover { opacity: 1; }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 0.9375rem;
+      color: var(--white);
+      opacity: 0.7;
+    }
+    .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; opacity: 0.8; }
+    .footer-contact-item a { color: var(--white); text-decoration: none; transition: opacity 0.2s; }
+    .footer-contact-item a:hover { opacity: 1; }
+
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 24px 0; }
+
+    .footer-bottom-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copyright { font-size: 0.875rem; color: var(--white); opacity: 0.7; }
+
+    .footer-design a {
+      font-size: 0.875rem;
+      color: var(--copper-600);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .footer-design a:hover { opacity: 0.8; }
+
+    /* =============================================
+       UTILITY
+    ============================================= */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+    }
+    .text-blue-600   { color: var(--blue-600); }
+    .text-copper-600 { color: var(--copper-600); }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "Plumber"],
+      "@id": "https://www.duckrangeplumbing.ca/#business",
+      "name": "Duck Range Plumbing and HVAC Ltd.",
+      "telephone": "+1-250-214-0539",
+      "description": "Licensed plumbing and HVAC contractor serving Chase, Pritchard, Sorrento, and the North Shuswap region of BC. Services include plumbing repairs, furnace installation and repair, gas fitting, irrigation, water treatment, and drain clearing.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "197 Shuswap Avenue",
+        "addressLocality": "Chase",
+        "addressRegion": "BC",
+        "postalCode": "V0E 1M0",
+        "addressCountry": "CA"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Chase"},
+        {"@type": "Place", "name": "Pritchard"},
+        {"@type": "Place", "name": "Sorrento"},
+        {"@type": "AdministrativeArea", "name": "North Shuswap"}
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "17:30"
+        }
+      ],
+      "sameAs": ["https://www.facebook.com/p/Duck-Range-Plumbing-Heating-LTD-61577103894593/"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What areas does Duck Range Plumbing serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Duck Range serves Chase, Pritchard, Sorrento, and the broader North Shuswap region of British Columbia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Duck Range offer free quotes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every estimate is free and comes with no obligation. Call 250-214-0539 or use the quote form on this page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Duck Range licensed for gas fitting in BC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Duck Range holds a valid gas fitting licence for British Columbia and is fully qualified for gas appliance installation, fireplace fitting, and new gas line work."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- ============================================
+       TOP BAR
+  ============================================= -->
+  <div class="topbar" role="banner">
+    <div class="container">
+      <div class="topbar-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="topbar-location-text">Serving Chase, Pritchard, Sorrento &amp; the Shuswap</span>
+        <span class="topbar-location-short">Chase, BC</span>
+      </div>
+      <div class="topbar-right">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.99-1.99a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:2502140539">250-214-0539</a>
+        <a href="#contact" class="btn-topbar">Get a Free Quote</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       HEADER / NAV
+  ============================================= -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle sr-only">
+      <div class="header-inner">
+        <div class="header-logo">
+          <a href="#" aria-label="Duck Range Plumbing and HVAC — Home">
+            <img src="logo.png" alt="Duck Range Plumbing and HVAC Ltd.">
+          </a>
+        </div>
+
+        <nav class="nav-desktop" aria-label="Primary navigation">
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="tel:2502140539" class="btn btn-copper" style="font-size:0.875rem;padding:10px 20px;">Call Now</a>
+        </nav>
+
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </label>
+      </div>
+
+      <nav class="nav-mobile" aria-label="Mobile navigation">
+        <div class="nav-mobile-inner">
+          <a href="#services"     class="nav-mobile-link">Services</a>
+          <a href="#about"        class="nav-mobile-link">About</a>
+          <a href="#testimonials" class="nav-mobile-link">Testimonials</a>
+          <a href="#faq"          class="nav-mobile-link">FAQ</a>
+          <a href="#contact"      class="nav-mobile-link">Contact</a>
+          <a href="tel:2502140539" class="btn btn-copper nav-mobile-link">Call Now — 250-214-0539</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================
+         HERO
+    ============================================= -->
+    <section class="hero" aria-label="Hero">
+      <div class="container">
+        <div class="hero-grid">
+
+          <!-- Left column -->
+          <div class="hero-left">
+            <div class="hero-cert-row">
+              <span class="hero-cert-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Licensed &amp; Insured
+              </span>
+              <span class="hero-cert-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                16 Years Experience
+              </span>
+              <span class="hero-cert-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Free Quotes
+              </span>
+            </div>
+
+            <h1>Chase &amp; Shuswap's Trusted Plumbing &amp; HVAC Experts</h1>
+            <p class="hero-sub">Serving Chase, Pritchard, Sorrento &amp; the North Shuswap. On time, every time — done right the first time.</p>
+
+            <div class="hero-btns">
+              <a href="#contact" class="btn btn-primary">Get Your Free Quote</a>
+              <a href="tel:2502140539" class="btn btn-ghost">Call 250-214-0539</a>
+            </div>
+
+            <div class="hero-trust">
+              <div class="hero-trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Licensed &amp; Insured in BC
+              </div>
+              <div class="hero-trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Gas Fitting Certified
+              </div>
+              <div class="hero-trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Local Shuswap Business
+              </div>
+            </div>
+          </div>
+
+          <!-- Right column — quote form -->
+          <div class="hero-right">
+            <div class="hero-form-card">
+              <p class="hero-form-title">Get a Free Quote</p>
+              <p class="hero-form-fine">We respond within one business day. No spam, ever.</p>
+              <form action="#" method="post" novalidate>
+                <div class="form-group">
+                  <label for="hero-name">Name</label>
+                  <input type="text" id="hero-name" name="name" placeholder="Your full name" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="hero-phone">Phone</label>
+                  <input type="tel" id="hero-phone" name="phone" placeholder="250-000-0000" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                  <label for="hero-email">Email</label>
+                  <input type="email" id="hero-email" name="email" placeholder="you@example.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                  <label for="hero-service">Service Needed</label>
+                  <div class="select-wrapper">
+                    <select id="hero-service" name="service">
+                      <option value="">Select a service…</option>
+                      <option>Plumbing Repair</option>
+                      <option>Heating &amp; Furnace</option>
+                      <option>Gas Fitting</option>
+                      <option>Irrigation</option>
+                      <option>Water Treatment</option>
+                      <option>Drain &amp; Sewer</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn-submit-copper">Request Free Quote</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SERVICES
+    ============================================= -->
+    <section class="section-services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow text-blue-600">Our Services</span>
+          <h2 id="services-heading">Everything Your Home Needs</h2>
+          <p>From emergency repairs to full system installations — we've got Chase and the Shuswap covered.</p>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service-card reveal">
+            <img src="../Bree-Link Plumbing and Heating/site-images/service-residential.jpg" alt="Plumbing repairs" class="service-img">
+            <div class="service-card-body">
+              <h3>Plumbing Repairs</h3>
+              <p>Burst pipes, leaky faucets, low water pressure, and drain issues handled fast across Chase and the Shuswap.</p>
+              <a href="#contact" class="service-card-link">
+                Get a Quote
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-card reveal">
+            <img src="../Bree-Link Plumbing and Heating/site-images/service-hotwater.jpg" alt="Heating and furnace service" class="service-img">
+            <div class="service-card-body">
+              <h3>Heating &amp; Furnace</h3>
+              <p>Furnace installation, boiler repair, and heating system tune-ups to keep your home warm all winter.</p>
+              <a href="#contact" class="service-card-link">
+                Get a Quote
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-card reveal">
+            <img src="../Bree-Link Plumbing and Heating/site-images/service-gasfitting.jpg" alt="Gas fitting" class="service-img">
+            <div class="service-card-body">
+              <h3>Gas Fitting</h3>
+              <p>Licensed gas fitting for appliances, fireplaces, new lines, and safety inspections throughout the region.</p>
+              <a href="#contact" class="service-card-link">
+                Get a Quote
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-card reveal">
+            <img src="../Bree-Link Plumbing and Heating/site-images/service-commercial.jpg" alt="Irrigation systems" class="service-img">
+            <div class="service-card-body">
+              <h3>Irrigation Systems</h3>
+              <p>Residential irrigation design, installation, and seasonal maintenance so your property stays green.</p>
+              <a href="#contact" class="service-card-link">
+                Get a Quote
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-card reveal">
+            <img src="../Bree-Link Plumbing and Heating/site-images/service-emergency.jpg" alt="Water treatment" class="service-img">
+            <div class="service-card-body">
+              <h3>Water Treatment</h3>
+              <p>Clean, safe water at every tap with professionally installed filtration and treatment systems.</p>
+              <a href="#contact" class="service-card-link">
+                Get a Quote
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-card reveal">
+            <img src="../Bree-Link Plumbing and Heating/site-images/service-drains.jpg" alt="Drain and sewer service" class="service-img">
+            <div class="service-card-body">
+              <h3>Drain &amp; Sewer</h3>
+              <p>Clogged drain clearing, backflow prevention, and backwater valve installation done to code.</p>
+              <a href="#contact" class="service-card-link">
+                Get a Quote
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         TESTIMONIALS
+    ============================================= -->
+    <section class="section-testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow text-blue-600">Reviews</span>
+          <h2 id="testimonials-heading">What Our Customers Say</h2>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <div class="testimonial-card reveal">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonial-quote">"Chris was honest, professional, and on time. He fixed our burst pipe quickly and left the place cleaner than he found it. I won't call anyone else."</p>
+            <p class="testimonial-attr">— Sarah M., Chase, BC</p>
+          </div>
+
+          <div class="testimonial-card reveal">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonial-quote">"Quick, knowledgeable, and courteous. I've used Duck Range twice — for a furnace issue and a drain problem — and both times the work was excellent."</p>
+            <p class="testimonial-attr">— Dave L., Sorrento, BC</p>
+          </div>
+
+          <div class="testimonial-card reveal">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonial-quote">"Top-notch skills and real service. He diagnosed a heating problem two other companies had missed and had it running the same day."</p>
+            <p class="testimonial-attr">— Marlene T., Pritchard, BC</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT
+    ============================================= -->
+    <section class="section-about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-text reveal">
+            <span class="eyebrow text-copper-600">About Us</span>
+            <h2 id="about-heading">Locally Owned. Shuswap Proud.</h2>
+            <p>Duck Range Plumbing and HVAC Ltd. was built on a simple idea: show up on time, do honest work, and charge a fair price. That's how owner and operator Chris has run this business for 16 years — and it's the standard every job is held to.</p>
+            <p>We're a locally owned operation based in Chase, BC, serving the community we live in. Whether it's a dripping faucet in town or a full HVAC installation out on the North Shuswap, we bring the same level of care and skill to every call.</p>
+            <p>We service Chase, Pritchard, Sorrento, and the surrounding North Shuswap region. When you call Duck Range, you get a real answer from a real person who knows your neighbourhood.</p>
+
+            <div class="trust-badges">
+              <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Licensed &amp; Insured in BC
+              </div>
+              <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                16 Years Experience
+              </div>
+              <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Gas Fitting Certified (BC)
+              </div>
+              <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Free Quotes — No Obligation
+              </div>
+            </div>
+          </div>
+
+          <div class="about-image reveal" role="img" aria-label="Add your team or project photo here">
+            <div class="about-image-label">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin:0 auto 12px;display:block;" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Add your team or project photo here
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         GALLERY (placeholder — add your job photos)
+    ============================================= -->
+    <section class="section-gallery" id="gallery" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="section-header" style="text-align:center;">
+          <span class="eyebrow" style="color:var(--neutral-400);">Our Work</span>
+          <h2 id="gallery-heading" style="color:var(--white);margin:0 auto;">Real Jobs. Real Results.</h2>
+          <p style="color:var(--neutral-400);margin:0 auto;">Installations and service calls across Chase and the Shuswap — every job finished to the same standard.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Replace each placeholder div with <img src="your-photo.jpg" alt="..."> inside .gallery-item -->
+          <div class="gallery-item reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="gallery-item reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="gallery-item reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="gallery-item reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="gallery-item reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="gallery-item reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="gallery-item reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="gallery-item reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="gallery-item reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="gallery-item reveal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FAQ
+    ============================================= -->
+    <section class="section-faq" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="faq-wrapper">
+          <div class="section-header" style="max-width:none;">
+            <span class="eyebrow text-blue-600">FAQ</span>
+            <h2 id="faq-heading">Common Questions</h2>
+          </div>
+
+          <div class="faq-list">
+
+            <details>
+              <summary>
+                What areas do you serve?
+                <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">We serve Chase, Pritchard, Sorrento, and the broader North Shuswap region in British Columbia. Not sure if you're in our service area? Give us a call at <a href="tel:2502140539">250-214-0539</a>.</div>
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                Do you offer free quotes?
+                <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">Yes. Every estimate is free and comes with no obligation. We'll assess your job and give you a clear, honest price before any work begins — no surprises on your bill.</div>
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                Are you licensed for gas fitting in BC?
+                <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">Yes, we hold a valid gas fitting licence for British Columbia and are fully qualified to work on natural gas and propane systems, fireplaces, appliances, and new gas line installations.</div>
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                What are your business hours?
+                <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">We're open Monday through Friday, 9:00 am to 5:30 pm. For non-emergency requests outside those hours, use the quote form and we'll follow up the next business day.</div>
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                What should I do in a plumbing emergency?
+                <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">Call us immediately at <a href="tel:2502140539" style="color:var(--blue-600);font-weight:600;">250-214-0539</a>. For a burst pipe, shut off your main water valve first to limit damage while you wait for help to arrive.</div>
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                Do you handle both plumbing and HVAC?
+                <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">Yes. We handle plumbing repairs, heating system installation and service, gas fitting, irrigation, water treatment, and drain cleaning — all through one licensed local company.</div>
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                Can I request service online?
+                <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">Yes, use the quote form at the top of this page or the contact form below. You can also call us at <a href="tel:2502140539" style="color:var(--blue-600);font-weight:600;">250-214-0539</a> to speak directly with us.</div>
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                How long have you been in business?
+                <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">Our owner and operator Chris has 16 years of industry experience. Duck Range Plumbing and HVAC Ltd. has been serving the Chase and Shuswap community since the beginning — we're your neighbours, not a call centre.</div>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT
+    ============================================= -->
+    <section class="section-contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="contact-heading">Get in Touch</h2>
+          <p>Call, email, or send us a message. Free quotes on every job.</p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-info reveal">
+
+            <div class="contact-info-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="info-text">
+                197 Shuswap Avenue<br>Chase, BC &nbsp;V0E 1M0
+              </div>
+            </div>
+
+            <div class="contact-info-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.99-1.99a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div class="info-text"><a href="tel:2502140539">250-214-0539</a></div>
+            </div>
+
+            <div class="contact-info-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div class="info-text"><a href="mailto:info@duckrangeplumbing.ca">info@duckrangeplumbing.ca</a></div>
+            </div>
+
+            <div class="contact-info-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div class="info-text">
+                Mon–Fri: 9:00 am – 5:30 pm
+                <span>Weekends: Closed</span>
+              </div>
+            </div>
+
+            <div class="contact-info-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color:var(--blue-600);flex-shrink:0;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <div class="info-text">
+                <a href="https://www.facebook.com/p/Duck-Range-Plumbing-Heating-LTD-61577103894593/" target="_blank" rel="noopener noreferrer">Follow us on Facebook</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="contact-form-card reveal">
+            <form action="#" method="post" novalidate>
+              <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" name="name" placeholder="Your full name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">Phone</label>
+                <input type="tel" id="contact-phone" name="phone" placeholder="250-000-0000" autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" name="email" placeholder="you@example.com" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" rows="4" placeholder="Tell us how we can help…"></textarea>
+              </div>
+              <button type="submit" class="btn-submit-blue">Send Message</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+  ============================================= -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Col 1: Brand -->
+        <div class="footer-col">
+          <img src="logo.png" alt="Duck Range Plumbing and HVAC Ltd." style="height:44px;width:auto;filter:invert(1);mix-blend-mode:screen;">
+          <p class="footer-logo-desc">Chase &amp; Shuswap's trusted plumbing and HVAC company.</p>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <p class="footer-col-title">Quick Links</p>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="footer-col">
+          <p class="footer-col-title">Services</p>
+          <ul class="footer-links">
+            <li><a href="#services">Plumbing Repairs</a></li>
+            <li><a href="#services">Heating &amp; Furnace</a></li>
+            <li><a href="#services">Gas Fitting</a></li>
+            <li><a href="#services">Irrigation Systems</a></li>
+            <li><a href="#services">Water Treatment</a></li>
+            <li><a href="#services">Drain &amp; Sewer</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact -->
+        <div class="footer-col">
+          <p class="footer-col-title">Contact</p>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>197 Shuswap Ave, Chase, BC</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.99-1.99a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:2502140539">250-214-0539</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@duckrangeplumbing.ca" style="word-break:break-word;">info@duckrangeplumbing.ca</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Mon–Fri 9am–5:30pm</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <p class="footer-copyright">
+            &copy; <span id="yr"></span> Duck Range Plumbing and HVAC Ltd. All rights reserved. Chase, BC.
+          </p>
+          <p class="footer-design">
+            Design by <a href="https://steepcreative.com/" target="_blank" rel="noopener noreferrer">Steep Creative</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Header shadow on scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+    }, { passive: true });
+
+    // Mobile nav: close on link click
+    const navToggle = document.getElementById('nav-toggle');
+    document.querySelectorAll('.nav-mobile-link').forEach(link => {
+      link.addEventListener('click', () => { navToggle.checked = false; });
+    });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // FAQ smooth animation
+    document.querySelectorAll('details').forEach(detail => {
+      const answer = detail.querySelector('.faq-answer');
+      if (!answer) return;
+      detail.addEventListener('toggle', () => {
+        answer.style.maxHeight = detail.open ? answer.scrollHeight + 'px' : '0';
+      });
+    });
+  </script>
+
+</body>
+</html>
